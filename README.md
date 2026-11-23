@@ -1,8 +1,8 @@
-# GovAsset — Gestão Participativa de Ativos Escolares (UPX-6)
+# GovAsset — Gestão Participativa de Ativos Escolares
 
 Plataforma web em que alunos, pais e professores relatam problemas de infraestrutura de escolas públicas (com fotos e
 localização) e a gestão pública consulta, em um painel, as **divergências** entre esses relatos e os dados oficiais
-(Censo Escolar/INEP e SIOPE/FNDE). Implementa o que está descrito nos itens 2.2, 5 e 6 do documento da UPX-6.
+(Censo Escolar/INEP e SIOPE/FNDE). Implementa o que está descrito nos itens 2.2, 5 e 6 do documento da.
 
 | Parte | Tecnologia | Pasta |
 |---|---|---|
@@ -194,4 +194,4 @@ trata as rotas da SPA.
 - O esquema do banco é criado com `EnsureCreated` (adequado ao protótipo). Para evoluir o banco em produção, adote EF Migrations.
 - Mapas usam os tiles públicos do OpenStreetMap (ok para protótipo; em volume alto, use um provedor de tiles próprio).
 - Importações carregam as tabelas em memória: adequado para milhares de linhas, não para o Censo nacional inteiro de uma vez.
-- Como no documento da UPX-6, não há ainda validação com usuários reais nem métricas de desempenho.
+- Ainda validação com usuários reais nem métricas de desempenho.
