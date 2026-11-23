@@ -1,0 +1,45 @@
+# Ambiente local completo: PostgreSQL + API + front. Um comando: docker compose up -d --build
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: govasset
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports: ["5432:5432"]
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d govasset"]
+      interval: 5s
+      retries: 10
+
+  api:
+    build: ./backend
+    restart: on-failure   # se o banco ainda não estiver acessível, tenta de novo sozinho
+    depends_on:
+      db: { condition: service_healthy }
+    ports: ["5080:8080"]
+    environment:
+      ConnectionStrings__Default: "Host=db;Port=5432;Database=govasset;Username=postgres;Password=postgres"
+      Jwt__Key: "troque-esta-chave-local-por-uma-com-32-ou-mais-caracteres"
+      CORS_ORIGINS: "http://localhost:5173"
+      Admin__Email: "admin@govasset.local"
+      Admin__Senha: "Admin@123456"
+      Seed__RealDataPath: "/seed"
+      Seed__Demo: "false"
+      Storage__Path: "/data/evidencias"
+    volumes:
+      - evidencias:/data/evidencias
+      - ./data/real:/seed:ro
+
+  web:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_URL: "http://localhost:5080"
+    depends_on: [api]
+    ports: ["5173:80"]   # front em http://localhost:5173 (mesma origem liberada no CORS da API)
+
+volumes:
+  pgdata:
+  evidencias:

@@ -1,0 +1,5 @@
+ano,uf,municipio,rede,categoria,valor,descricao
+2025,MG,Belo Horizonte,Municipal,Conservacao,"1.250.000,00",Manutenção predial (exemplo)
+2025,MG,Belo Horizonte,Municipal,Mobiliario,"380.000,00",Aquisição de mobiliário (exemplo)
+2025,MG,,Estadual,Conservacao,"2.900.000,00",Reformas na rede estadual (exemplo)
+2025,MG,Contagem,Municipal,Mobiliario,"150.000,00",Mobiliário escolar (exemplo)

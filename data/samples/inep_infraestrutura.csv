@@ -1,0 +1,8 @@
+codigo_inep,categoria,item,existe,ano
+31900101,Acessibilidade,rampa,sim,2024
+31900101,Acessibilidade,banheiro_adaptado,sim,2024
+31900101,Acessibilidade,piso_tatil,nao,2024
+31900101,Seguranca,extintor,sim,2024
+31900102,Acessibilidade,elevador,sim,2024
+31900102,Conservacao,telhado,sim,2024
+31900103,Mobiliario,carteiras_cadeiras,sim,2024
